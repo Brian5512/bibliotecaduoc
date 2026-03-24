@@ -1,0 +1,12 @@
+@Repository
+public class LibroRepository {
+
+    //Guarda todos los libros
+    private List<Libro> listalibros = new ArrayList<>();
+
+    //retorna todos los libros
+    public List<Libro> obtenerLibro(){
+        return listalibros
+    }
+    
+}
