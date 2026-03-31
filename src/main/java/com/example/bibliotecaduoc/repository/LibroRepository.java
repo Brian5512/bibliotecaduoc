@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.bibliotecaduoc.model.Libro;
 
@@ -87,4 +88,17 @@ public class LibroRepository {
         listaLibros.removeIf(b->b.getId()==id);
         return true;
     }
+
+    public List<Libro> getmayores(int year) {
+        List<Libro> mayores =new ArrayList<>();
+        for (Libro libro : mayores) {
+            if(libro.getFechaPublicacion()>=year){
+                mayores.add(libro);
+            }
+            
+        }
+        return mayores;
+    }
+
+
 } 
