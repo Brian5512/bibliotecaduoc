@@ -23,13 +23,20 @@ public class LibroService {
     public Libro update(Libro libro){
         return libroRepository.actualizar(libro);
     }
-    public void delete(int id ){
-        libroRepository.eliminar(id);
-    }
+
     public Libro readByid(int id){
         return libroRepository.buscarPorId(id);
     }
     public Libro readByisbn(String isbn){
         return libroRepository.buscarPorIsbn(isbn);
+    }
+    public void datosFake(){
+        libroRepository.cargarLibrosFake();
+    }
+    public  Libro updateid(int id, Libro libro) {
+        return libroRepository.modificarid(id, libro);
+    }
+    public boolean deleteLibro (int id){
+        return libroRepository.
     }
 }

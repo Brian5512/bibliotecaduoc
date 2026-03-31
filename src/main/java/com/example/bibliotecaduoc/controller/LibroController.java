@@ -10,10 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 import com.example.bibliotecaduoc.model.Libro;
+import com.example.bibliotecaduoc.repository.LibroRepository;
 import com.example.bibliotecaduoc.service.LibroService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -41,6 +43,23 @@ public class LibroController {
     public Libro buscaLibro(@PathVariable int id) {
         return libroService.readByid(id);
     }
+    
+    @GetMapping("seed")
+    public String getSeed() {
+        libroService.datosFake();
+        return "Datos cargados";
+    }
+
+    @GetMapping("isbn/{isbn}")
+    public Libro buscaLibro(@PathVariable String isbn) {
+        return libroService.readByisbn(isbn);
+    }
+
+    @PutMapping("{id}")
+    public Libro putLibro(@PathVariable int id, @RequestBody Libro libro) {
+        return libroService.updateid(id, libro);
+    }
+    
 
 }
 
